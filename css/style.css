@@ -8633,8 +8633,14 @@ html {
   font-size: 35px;
 }
 .description__list li {
+  padding: 0 10px;
   transition-duration: 0.5s;
   animation-direction: alternate;
+}
+@media (min-width: 768px) {
+  .description__list li {
+    padding: 0 15px;
+  }
 }
 .description__list li:hover {
   transform: scale(1.3);
