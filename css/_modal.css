@@ -1,5 +1,9 @@
 .modal {
   position: fixed !important;
-  height: 100px;
-  width: 100px;
+  right: 30px;
+  bottom: 30px;
+  height: 70px;
+  width: 70px;
+  background-color: #ff6767;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
