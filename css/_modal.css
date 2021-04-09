@@ -1,0 +1,5 @@
+.modal {
+  position: fixed !important;
+  height: 100px;
+  width: 100px;
+}
