@@ -4,18 +4,16 @@ request.open('GET', requestURL);
 request.responseType = 'json';
 request.send();
 
-
-
-    const init = () => {
-    let flag = 1
-    const modal = document.querySelector('.modal')
-    const modalIcon = document.querySelector('.fa-comments')
-    const rates = request.response;
+const init = () => {
+    const modal = document.querySelector('.modal'),
+          modalIcon = document.querySelector('.fa-comments'),
+          rates = request.response;
+    let flag = 1;
 
     rates.forEach(element => {
-        const newItem = document.createElement('tr');
-        const values = Object.values(element);
-        values.forEach(value => { newItem.innerHTML +=`<td>${value}</td>`});
+        const newItem = document.createElement('tr'),
+              values = Object.values(element);
+        values.forEach(value => { newItem.innerHTML += `<td>${value}</td>` });
         document.querySelector('.rate__table').appendChild(newItem);
     });
 
@@ -26,22 +24,22 @@ request.send();
         
         modalIcon.style.display = 'none';
         modal.style.height = '60vh';
-        modal.style.width = '70vw'
-        modal.style.borderRadius = '15px'
+        modal.style.width = '70vw';
+        modal.style.borderRadius = '15px';
         
-        const write = document.createElement('p');
-        const input = document.createElement('input');
-        const send = document.createElement('buttom');
-        const back = document.createElement('div');
+        const write = document.createElement('p'),
+              input = document.createElement('input'),
+              send = document.createElement('buttom'),
+              back = document.createElement('div');
 
-        write.innerText = 'Write Us'
+        write.innerText = 'Write Us';
         input.type = 'text';
-        send.innerText = 'Send'
+        send.innerText = 'Send';
         
-        back.classList.add('modal__back')
-        write.classList.add('modal__write')
-        input.classList.add('modal__input')
-        send.classList.add('modal__send')
+        back.classList.add('modal__back');
+        write.classList.add('modal__write');
+        input.classList.add('modal__input');
+        send.classList.add('modal__send');
         
         modal.appendChild(back);
         modal.appendChild(write);
@@ -53,27 +51,27 @@ request.send();
         const modalBack = () => {
             modalIcon.style.display = 'block';
             modal.style.height = '70px';
-            modal.style.width = '70px'
-             modal.style.borderRadius = '50%'
+            modal.style.width = '70px';
+            modal.style.borderRadius = '50%';
             modal.removeChild(write);
             modal.removeChild(back);
             modal.removeChild(input);
             modal.removeChild(send);
 
-            modal.addEventListener('click', modalView, false)
-            flag++
+            modal.addEventListener('click', modalView, false);
+            flag++;
         }
 
         const sendInput = () => {
             input.value = '';
-            modalBack()
+            modalBack();
         }
 
-        send.addEventListener('click', sendInput , false)
-        modal.removeEventListener('click', modalView , false)
-        back.addEventListener('click',modalBack, false)
+        send.addEventListener('click', sendInput , false);
+        modal.removeEventListener('click', modalView , false);
+        back.addEventListener('click', modalBack, false);
     }
-    modal.addEventListener('click',modalView, false)
+    modal.addEventListener('click', modalView, false);
 }
 
-window.addEventListener('load' , init)
+window.addEventListener('load', init);
