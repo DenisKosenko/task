@@ -1,19 +1,21 @@
 
 .rate{
+    padding: 15px;
+    font-size: 14px;
     @media (min-width: 768px) {
         padding: 30px;
         font-size: 18px;
     }
-
-    padding: 15px;
-    font-size: 14px;
-
+    
     &__headline{
-        margin-top: 20px;
-        color: @purple;
-        border: 5px solid @purple;
-        padding: 5px;
-        border-radius: 15px;
+        font-size: 25px;
+        color: @gray;
+        text-align: center;
+        border-bottom: 5px solid @gray;
+        width: 80%;
+        @media (min-width: 768px) {
+            width: 50%;
+        }
     }
 
     &__table{
@@ -27,7 +29,7 @@
             text-align: left;
             border-bottom: 2px solid @purple;
             color: @purple;
-            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5) ;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
     }
 }

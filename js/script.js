@@ -22,10 +22,8 @@ request.send();
 
     const modalView = () => {
         
-        if(flag % 2 == 0){
-          flag++
-          return
-        }
+        if(flag % 2 == 0){ flag++; return}
+        
         modalIcon.style.display = 'none';
         modal.style.height = '60vh';
         modal.style.width = '70vw'
@@ -52,31 +50,30 @@ request.send();
 
         back.insertAdjacentHTML('afterbegin', '<i class="fas fa-times"></i>');
 
-        
-
         const modalBack = () => {
-          console.log(modal)
-          modalIcon.style.display = 'block';
-          modal.style.height = '70px';
-          modal.style.width = '70px'
-          modal.style.borderRadius = '50%'
-          modal.removeChild(write);
-          modal.removeChild(back);
-          modal.removeChild(input);
-          modal.removeChild(send);
+            modalIcon.style.display = 'block';
+            modal.style.height = '70px';
+            modal.style.width = '70px'
+             modal.style.borderRadius = '50%'
+            modal.removeChild(write);
+            modal.removeChild(back);
+            modal.removeChild(input);
+            modal.removeChild(send);
 
-          flag++
-          modal.addEventListener('click', modalView, false)
-
+            modal.addEventListener('click', modalView, false)
+            flag++
         }
 
-        modal.removeEventListener('click', modalView , false)
+        const sendInput = () => {
+            input.value = '';
+            modalBack()
+        }
 
+        send.addEventListener('click', sendInput , false)
+        modal.removeEventListener('click', modalView , false)
         back.addEventListener('click',modalBack, false)
     }
-
     modal.addEventListener('click',modalView, false)
-
 }
 
 window.addEventListener('load' , init)
